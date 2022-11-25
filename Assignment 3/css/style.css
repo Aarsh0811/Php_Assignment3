@@ -1,0 +1,137 @@
+/*
+NAME : Aarsh Parimal Patel
+Student ID : 200520260
+Assignment#3
+*/
+
+/* This is the CSS file for our website */
+
+/* adding css to our body */
+body {
+    /* adding background gradient color to our body */
+    background-image: linear-gradient(109.6deg, rgba(156, 252, 248, 1) 11.2%, rgba(110, 123, 251, 1) 91.1%);
+    margin: auto;
+}
+
+/* adding css to our header */
+header {
+    background-color: #5a10f29c;
+    height: 85px;
+}
+
+/* adding css to our footer */
+footer {
+    background-color: #5a10f29c;
+    height: 75px;
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+footer h2 {
+    padding-top: 25px;
+    font-size: 20px;
+    color: white;
+}
+
+/* adding css to our form */
+section.profileform {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    padding-left: 100px;
+    padding-right: 100px;
+    background-color: #007dff3d;
+}
+
+/* adding css to the lower section of our view profile page */
+div.col-lg-8 {
+    max-width: 95.666667%;
+    padding-left: 90px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+
+}
+
+/* adding css to the upper section of our view profile page */
+div.col-lg-4 {
+    min-width: 88.666667%;
+    padding-left: 180px;
+    padding-bottom: 20px;
+    margin-top: 50px;
+
+}
+
+/* adding css to our Navigation */
+nav {
+    min-width: 118%;
+    margin-left: -100px;
+    margin-top: -38px;
+}
+
+/* adding css to our buttons */
+.btn-primary {
+    margin-right: 5px;
+    padding-bottom: 20px;
+
+}
+
+.btn-outline-primary {
+    margin-left: 5px;
+    padding-bottom: 20px;
+}
+
+/* adding css to our division */
+div.d-flex {
+    padding-bottom: 20px;
+}
+
+/* adding css to our form */
+form {
+    margin-top: 0px;
+    padding: 20px 20px;
+    background-color: #b3cdff;
+
+}
+
+/* adding css to our icons */
+nav svg {
+    padding-bottom: 3px;
+    width: 16px;
+    height: auto;
+}
+
+button svg {
+    padding-bottom: 3px;
+    width: 16px;
+    padding-right: 2px;
+    height: auto;
+}
+
+/* this will act during the time of hover on the button */
+nav ol li a:hover {
+    text-decoration: none;
+    list-style: none;
+}
+
+/* adding css to h2 */
+.addprofile h2 {
+    margin-top: 300px;
+    margin-bottom: 300px;
+    font-size: 30px;
+    font-family: monospace;
+    font-weight: bold;
+    height: 250px;
+    width: auto;
+    text-align: center;
+    color: #151B8D;
+    padding-top: 110px;
+    margin-left: 80px;
+    margin-right: 80px;
+    background-color: #b3cdff;
+}
+
+/* adding css to our alert*/
+.alert-warning {
+    margin-right: 800px;
+}
+
+/* End of the code for our CSS */
