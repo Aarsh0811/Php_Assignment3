@@ -6,7 +6,7 @@ Assignment#3 -->
 <!-- This is the code for the Add profile page of our website -->
 <?php
 //to include the database file
-include "database.php";
+include "./database.php";
 $customerObj = new database();
 
 // adding the if statement to insert the data when the user clicks the Add Profile button
@@ -47,36 +47,29 @@ if (isset($_POST['Addprofile'])) {
             <div class="card-header bg-dark text-white">
                 <h2>Insert Data</h2>
             </div>
-
             <!--  adding if statements to our php-->
-            <?php
-            if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                //creating our variables
-                $fullname1 = trim($_POST['FullName']);
-                $email1 = trim($_POST['Email']);
-                $phonenum1 = trim($_POST['PhoneNumber']);
-                $profession1 = trim($_POST['Profession']);
-                $birthdate1 = trim($_POST['Birthdate']);
-                $address1 = trim($_POST['Address']);
-                $bio1 = trim($_POST['Bio']);
+                        <?php
+                        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                            //creating our variables
+                            $fullname1 = trim($_POST['FullName']);
+                            $email1 = trim($_POST['Email']);
+                            $phonenum1 = trim($_POST['PhoneNumber']);
+                            $profession1 = trim($_POST['Profession']);
+                            $birthdate1 = trim($_POST['Birthdate']);
+                            $address1 = trim($_POST['Address']);
+                            $bio1 = trim($_POST['Bio']);
 
-                // adding variable for errors
-                $error = "";
-                // adding conditions for displaying alerts for errors
-                if (!preg_match("/^[_.0-9a-zA-Z-]+@([0-9a-zA-Z][0-9a-zA-Z-]+.)+[a-zA-Z]{2,6}$/i", $email1)) {
-                    $error = "Please use the correct format for email!";
-                } elseif (strlen($phonenum1) != 10) {
-                    $error = "Your phone number must be 10 characters long!";
-                } else {
-            ?>
-                    <script>
-                        alert("Your profile was added successfully!")
-                    </script>
-            <?php
-                }  // continuing php till the end brackets
-            }
+                            // adding variable for errors
+                            $error = "";
+                            // adding conditions for displaying alerts for errors
+                            if (!preg_match("/^[_.0-9a-zA-Z-]+@([0-9a-zA-Z][0-9a-zA-Z-]+.)+[a-zA-Z]{2,6}$/i", $email1)) {
+                                $error = "Please use the correct format for email!";
+                            } elseif (strlen($phonenum1) != 10) {
+                                $error = "Your phone number must be 10 characters long!";
+                            }
 
-            ?>
+                          }
+                          ?>
 
             <!-- adding our form -->
             <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
