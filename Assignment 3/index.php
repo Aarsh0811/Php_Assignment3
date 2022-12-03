@@ -72,14 +72,16 @@ if (isset($_GET['deletedID']) && !empty($_GET['deletedID'])) {
            </div>";
         }
         ?>
+        <!-- adding the variable which will fetch and display our data at the required spots -->
+        <?php
+        $customers = $customerObj->displayData();
+        foreach ($customers as $customer) {
+        ?>
+
         <section>
 
-            <!-- adding the variable which will fetch and display our data at the required spots -->
-            <?php
-            $customers = $customerObj->displayData();
-            foreach ($customers as $customer) {
-            ?>
-                <div class="row">
+
+          <div class="row">
                     <div class="col-lg-4">
                         <div class="card mb-4">
                             <div class="card-body text-center">
@@ -179,11 +181,11 @@ if (isset($_GET['deletedID']) && !empty($_GET['deletedID'])) {
                         </svg>Delete</button></a>
 
             </div>
+
+        </section>
         <?php
             }
         ?>
-        </section>
-
     </main>
 
     <!-- calling our footer -->
