@@ -7,17 +7,19 @@ Assignment#3 -->
 
 <?php
 //to include the database file
-include "database.php";
+include "./database.php";
 $customerObj = new database();
 
 //to update our profile
-if (isset($_GET['updateID']) && !empty($_GET['updateID'])) {
-    $updateID = $_GET['updateID'];
-    $customer = $customerObj->displayRecordByID($updateID);
+if (isset($_GET['updateId']) && !empty($_GET['updateId'])) {
+    $updateId = $_GET['updateId'];
+    $customer = $customerObj->displayRecordById($updateId);
 }
 if (isset($_POST['Update'])) {
     $customerObj->updateRecord($_POST);
 }
+
+
 ?>
 
 <!-- adding our doctype -->
@@ -49,78 +51,76 @@ if (isset($_POST['Update'])) {
 
     <!-- adding our main -->
     <main>
+      <?php
+      $customers = $customerObj->displayData();
+      foreach ($customers as $customer) {
+      ?>
 
         <section class="profileform">
+
             <div class="card-header bg-dark text-white">
                 <h2>Update Data</h2>
             </div>
 
             <!--  adding if statements to our php-->
-            <?php
-            if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                //creating our variables
-                $fullname3 = trim($_POST['uFullName']);
-                $email3  = trim($_POST['uEmail']);
-                $phonenum3  = trim($_POST['uPhoneNumber']);
-                $profession3 = trim($_POST['uProfession']);
-                $birthdate3  = trim($_POST['uBirthdate']);
-                $address3  = trim($_POST['uAddress']);
-                $bio3  = trim($_POST['uBio']);
+                        <?php
+                        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                            //creating our variables
+                            $fullname = trim($_POST['uFullName']);
+                            $email = trim($_POST['uEmail']);
+                            $phonenum = trim($_POST['uPhoneNumber']);
+                            $profession = trim($_POST['uProfession']);
+                            $birthdate = trim($_POST['uBirthdate']);
+                            $address = trim($_POST['uAddress']);
+                            $bio = trim($_POST['uBio']);
 
-                // adding variable for errors
-                $error = "";
-                if (!preg_match("/^[_.0-9a-zA-Z-]+@([0-9a-zA-Z][0-9a-zA-Z-]+.)+[a-zA-Z]{3,6}$/i", $email3)) {
-                    $error = "Please use the correct format for email!";
-                } elseif (strlen($phonenum3) != 10) {
-                    $error = "Your phone number must be 10 characters long!";
-                } else {
-            ?>
-                    <script>
-                        alert("Your profile was updated successfully!");
-                    </script>
-            <?php
-                }  // continuing php till the end brackets
-            }
-
-            ?>
-
+                            // adding variable for errors
+                            $error = "";
+                            // adding conditions for displaying alerts for errors
+                            if (!preg_match("/^[_.0-9a-zA-Z-]+@([0-9a-zA-Z][0-9a-zA-Z-]+.)+[a-zA-Z]{2,6}$/i", $email)) {
+                                $error = "Please use the correct format for email!";
+                            } elseif (strlen($phonenum) != 10) {
+                                $error = "Your phone number must be 10 characters long!";
+                            }
+                          }
+                          ?>
             <!-- adding our form -->
             <form action="updateprofile.php" method="POST">
 
-                <!-- adding variable to display the existing data -->
-                <?php
-                $customers = $customerObj->displayData();
-                foreach ($customers as $customer) {
-                ?>
-                    <div class="form-row">
+
+
+
+                   <div class="form-row">
+                     <!-- adding variable to display the existing data -->
+
                         <div class="form-group col-md-6">
 
-                            <!-- Here the values will be populated by the data which was inputted in the Add profile page -->
+                             <!-- Here the values will be populated by the data which was inputted in the Add profile page -->
 
                             <!-- input for our full name -->
-                            <label for="uFullName">Full Name</label>
-                            <input type="text" class="form-control" name="uFullName" required="This field is required!" value="<?php echo $customer['FullName']; ?>">
+                            <label for="FullName">Full Name</label>
+                            <input type="text" class="form-control" name="uFullName" value="<?php echo $customer['FullName']; ?>" required="This field is required!">
                         </div>
                         <div class="form-group col-md-6">
 
                             <!-- input for our email -->
-                            <label for="uEmail">Email</label>
-                            <input type="email" class="form-control" name="uEmail" required="This field is required!" value="<?php echo $customer['Email']; ?>">
+                            <label for="Email">Email</label>
+                            <input type="email" class="form-control" name="uEmail" value="<?php echo $customer['Email']; ?>" required="This field is required!">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
 
                             <!-- input for our phone number -->
-                            <label for="uPhoneNumber">Phone Number</label>
-                            <input type="tel" class="form-control" name="uPhoneNumber" required="This field is required!" pattern="^[0-9]{6}|[0-9]{8}|[0-9]{10}$" value="<?php echo $customer['PhoneNumber']; ?>">
+                            <label for="PhoneNumber">Phone Number</label>
+                            <input type="tel" class="form-control" name="uPhoneNumber" pattern="^[0-9]{6}|[0-9]{8}|[0-9]{10}$" value="<?php echo $customer['PhoneNumber']; ?>" required="This field is required!">
 
                         </div>
                         <div class="form-group col-md-6">
 
                             <!-- input for our profession -->
-                            <label for="uProfession">Profession</label>
-                            <input type="text" class="form-control" name="uProfession" required="This field is required!" value="<?php echo $customer['Profession']; ?>">
+                            <label for="Profession">Profession</label>
+                            <input type="text" class="form-control" name="uProfession" value="<?php echo $customer['Profession']; ?>" required="This field is required!">
 
                         </div>
                     </div>
@@ -128,25 +128,25 @@ if (isset($_POST['Update'])) {
                         <div class="form-group col-md-6">
 
                             <!-- input for our date of birth -->
-                            <label for="uBirthdate">Date of birth</label>
-                            <input type="date" class="form-control" name="uBirthdate" required="This field is required!" value="<?php echo $customer['Birthdate']; ?>">
+                            <label for="Birthdate">Date of birth</label>
+                            <input type="date" class="form-control" name="uBirthdate" value="<?php echo $customer['Birthdate']; ?>" required="This field is required!">
                         </div>
                         <div class="form-group col-md-6">
 
                             <!-- input for our address -->
-                            <label for="uAddress">Address</label>
-                            <input type="text" class="form-control" name="uAddress" required="This field is required!" value="<?php echo $customer['Address']; ?>">
+                            <label for="Address">Address</label>
+                            <input type="text" class="form-control" name="uAddress" value="<?php echo $customer['Address']; ?>" required="This field is required!">
                         </div>
                     </div>
 
                     <!-- input for our bio -->
-                    <label for="uBio">Bio</label>
-                    <input type="textarea" class="form-control" name="uBio" required="This field is required!" value="<?php echo $customer['Bio']; ?>">
+                    <label for="Bio">Bio</label>
+                    <input type="textarea" class="form-control" name="uBio" value="<?php echo $customer['Bio']; ?>" required="This field is required!">
                     </div>
                     <br>
 
                     <!-- Here the id is hidden as the users cannot change it as it is the trigger to fetch and display our data -->
-                    <input type="hidden" name="ID" value="<?php echo $customer['ID']; ?>">
+                    <input type="hidden" name="ID" value="<?php echo $customer['ID'];?>">
 
                     <!-- adding our submit button -->
                     <input type="submit" class="btn btn-primary" value="Update Profile" name="Update">
@@ -162,14 +162,15 @@ if (isset($_POST['Update'])) {
                             <?php echo "<strong>$error</strong>"; ?>
                             <button type='button' class='close' data-dismiss='alert'>x</button>
                         </div>
-                    <?php
-                    }
-                    ?>
+<?php
+}
+?>
             </form>
-        <?php
-                }
-        ?>
+
         </section>
+        <?php
+        }
+        ?>
     </main>
 
     <!-- calling our footer -->
