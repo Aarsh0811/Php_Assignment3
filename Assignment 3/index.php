@@ -87,15 +87,15 @@ if (isset($_GET['deletedID']) && !empty($_GET['deletedID'])) {
                             <div class="card-body text-center">
                                 <!-- This division is for our Full NAme, Profession and Address which will be displayed at the upper section of our page -->
                                 <!-- Here I have used ID as a trigger for adding our data -->
-                                <p hidden><?php echo $customer['ID']; ?></p>
+                                <p hidden><?php echo $customer['id']; ?></p>
                                 <!-- for full name -->
-                                <h5 class="my-3"><?php echo $customer['FullName']; ?></h5>
+                                <h5 class="my-3"><?php echo $customer['fullname']; ?></h5>
                                 <!-- for profession -->
-                                <p class="text-muted mb-1"><?php echo $customer['Profession']; ?></p>
+                                <p class="text-muted mb-1"><?php echo $customer['profession']; ?></p>
                                 <!-- for address -->
-                                <p class="text-muted mb-4"><?php echo $customer['Address']; ?></p>
+                                <p class="text-muted mb-4"><?php echo $customer['address']; ?></p>
                                 <hr>
-                                <p><?php echo $customer['Bio']; ?></p>
+                                <p><?php echo $customer['bio']; ?></p>
                             </div>
                         </div>
                     </div>
@@ -114,7 +114,7 @@ if (isset($_GET['deletedID']) && !empty($_GET['deletedID'])) {
                             </div>
                             <div class="col-sm-9">
                                 <!-- for full name-->
-                                <p class="text-muted mb-0"><?php echo $customer['FullName']; ?></p>
+                                <p class="text-muted mb-0"><?php echo $customer['fullname']; ?></p>
                             </div>
                         </div>
                         <hr>
@@ -124,7 +124,7 @@ if (isset($_GET['deletedID']) && !empty($_GET['deletedID'])) {
                                 <p class="mb-0">Email</p>
                             </div>
                             <div class="col-sm-9">
-                                <p class="text-muted mb-0"><?php echo $customer['Email']; ?></p>
+                                <p class="text-muted mb-0"><?php echo $customer['email']; ?></p>
                             </div>
                         </div>
                         <hr>
@@ -134,7 +134,7 @@ if (isset($_GET['deletedID']) && !empty($_GET['deletedID'])) {
                                 <p class="mb-0">Phone</p>
                             </div>
                             <div class="col-sm-9">
-                                <p class="text-muted mb-0"><?php echo $customer['PhoneNumber']; ?></p>
+                                <p class="text-muted mb-0"><?php echo $customer['phonenum']; ?></p>
                             </div>
                         </div>
                         <hr>
@@ -148,7 +148,7 @@ if (isset($_GET['deletedID']) && !empty($_GET['deletedID'])) {
                                 <p class="mb-0">Date of birth</p>
                             </div>
                             <div class="col-sm-9">
-                                <p class="text-muted mb-0"><?php echo $customer['Birthdate']; ?></p>
+                                <p class="text-muted mb-0"><?php echo $customer['birthdate']; ?></p>
                             </div>
                         </div>
                         <hr>
@@ -159,7 +159,7 @@ if (isset($_GET['deletedID']) && !empty($_GET['deletedID'])) {
                                 <p class="mb-0">Address</p>
                             </div>
                             <div class="col-sm-9">
-                                <p class="text-muted mb-0"><?php echo $customer['Address']; ?></p>
+                                <p class="text-muted mb-0"><?php echo $customer['address']; ?></p>
 
                             </div>
                         </div>
@@ -170,12 +170,12 @@ if (isset($_GET['deletedID']) && !empty($_GET['deletedID'])) {
 
             <!-- adding our button which will redirect the user to the Update profile page of our website -->
             <div class="d-flex justify-content-center">
-                <a href="updateprofile.php?updateID=<?php echo $customer['ID']; ?>"> <button type="button" class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-circle" viewBox="0 0 16 16">
+                <a href="updateprofile.php?updateId=<?php echo $customer['id']; ?>"> <button type="button" class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-circle" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z" />
                         </svg>Update</button></a>
 
                 <!-- adding the button to Delete our profile -->
-                <a href="index.php?deletedID=<?php echo $customer['ID']; ?>"> <button type="button" class="btn btn-outline-primary ms-1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                <a href="index.php?deletedID=<?php echo $customer['id']; ?>"> <button type="button" class="btn btn-outline-primary ms-1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                             <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
                             <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
                         </svg>Delete</button></a>
