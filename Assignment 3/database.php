@@ -27,15 +27,15 @@ class database
     // the below is the function to insert data (Create function)
     public function insertData($post)
     {
-        $fullname = $this->databaseConnect->real_escape_string($_POST['FullName']);
-        $email = $this->databaseConnect->real_escape_string($_POST['Email']);
-        $phonenum = $this->databaseConnect->real_escape_string($_POST['PhoneNumber']);
-        $profession = $this->databaseConnect->real_escape_string($_POST['Profession']);
-        $birthdate = $this->databaseConnect->real_escape_string($_POST['Birthdate']);
-        $address = $this->databaseConnect->real_escape_string($_POST['Address']);
-        $bio = $this->databaseConnect->real_escape_string($_POST['Bio']);
+        $fullname = $this->databaseConnect->real_escape_string($_POST['fullname']);
+        $email = $this->databaseConnect->real_escape_string($_POST['email']);
+        $phonenum = $this->databaseConnect->real_escape_string($_POST['phonenum']);
+        $profession = $this->databaseConnect->real_escape_string($_POST['profession']);
+        $birthdate = $this->databaseConnect->real_escape_string($_POST['birthdate']);
+        $address = $this->databaseConnect->real_escape_string($_POST['address']);
+        $bio = $this->databaseConnect->real_escape_string($_POST['bio']);
         // adding query to add our data
-        $query = "INSERT INTO Profile_Record(FullName,Email,PhoneNumber,Profession,Birthdate,Address,Bio) VALUES ('$fullname','$email','$phonenum','$profession','$birthdate','$address','$bio')";
+        $query = "INSERT INTO Profile_Record(fullname,email,phonenum,profession,birthdate,address,bio) VALUES ('$fullname','$email','$phonenum','$profession','$birthdate','$address','$bio')";
         $sql = $this->databaseConnect->query($query);
         if ($sql == true) {
             //this will display message on the View profile page when the form is submitted successfully
@@ -73,13 +73,14 @@ class database
 
 
     //creating function to fetch single row from the table (Read and Update function)
-    public function displayRecordByID($ID)
+    public function displayRecordById($id)
     {
         // adding query to display our data
-        $query = "SELECT * FROM Profile_Record WHERE ID = '$ID'";
+        $query = "SELECT * FROM Profile_Record WHERE id = '$id'";
         $results = $this->databaseConnect->query($query);
         if ($results->num_rows > 0) {
             $row = $results->fetch_assoc();
+            return $row;
         } else {
             // adding alert for error
             echo "<div class='alert alert-danger alert-dismissible'>
@@ -91,17 +92,17 @@ class database
     //Creating update function
     public function updateRecord($postData)
     {
-        $fullname = $this->databaseConnect->real_escape_string($_POST['uFullName']);
-        $email = $this->databaseConnect->real_escape_string($_POST['uEmail']);
-        $phonenum = $this->databaseConnect->real_escape_string($_POST['uPhoneNumber']);
-        $profession = $this->databaseConnect->real_escape_string($_POST['uProfession']);
-        $birthdate = $this->databaseConnect->real_escape_string($_POST['uBirthdate']);
-        $address = $this->databaseConnect->real_escape_string($_POST['uAddress']);
-        $bio = $this->databaseConnect->real_escape_string($_POST['uBio']);
-        $ID = $this->databaseConnect->real_escape_string($_POST['ID']);
-        if (!empty($ID) && !empty($postData)) {
+        $fullname = $this->databaseConnect->real_escape_string($_POST['ufullname']);
+        $email = $this->databaseConnect->real_escape_string($_POST['uemail']);
+        $phonenum = $this->databaseConnect->real_escape_string($_POST['uphonenum']);
+        $profession = $this->databaseConnect->real_escape_string($_POST['uprofession']);
+        $birthdate = $this->databaseConnect->real_escape_string($_POST['ubirthdate']);
+        $address = $this->databaseConnect->real_escape_string($_POST['uaddress']);
+        $bio = $this->databaseConnect->real_escape_string($_POST['ubio']);
+        $id = $this->databaseConnect->real_escape_string($_POST['id']);
+        if (!empty($id) && !empty($postData)) {
             // adding query to update our data
-            $query = "UPDATE Profile_Record SET FullName = '$fullname', Email = '$email', PhoneNumber = '$phonenum', Profession = '$profession', Birthdate = '$birthdate', Address = '$address', Bio = '$bio' WHERE ID = '$ID'";
+            $query = "UPDATE Profile_Record SET fullname = '$fullname', email = '$email', phonenum = '$phonenum', profession = '$profession', birthdate = '$birthdate', address = '$address', bio = '$bio' WHERE id = '$id'";
             $sql = $this->databaseConnect->query($query);
             if ($sql == true) {
                 //this will display message on the View profile page when the form is submitted successfully
@@ -116,10 +117,10 @@ class database
         }
     }
     //Creating Delete function
-    public function deleteRecord($ID)
+    public function deleteRecord($id)
     {
         // adding query to delete our data
-        $query = "DELETE FROM Profile_Record WHERE ID = '$ID'";
+        $query = "DELETE FROM Profile_Record WHERE id = '$id'";
         $sql = $this->databaseConnect->query($query);
         if ($sql == true) {
             //this will display message on the View profile page when the form is submitted successfully
