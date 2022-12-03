@@ -53,7 +53,7 @@ class database
     public function displayData()
     {
         // adding query to display our data
-        $query = "SELECT * FROM Profile_Record LIMIT 1";
+        $query = "SELECT * FROM Profile_Record";
         $results = $this->databaseConnect->query($query);
         if ($results->num_rows > 0) {
             $data = array();
@@ -71,18 +71,17 @@ class database
         }
     }
 
+
     //creating function to fetch single row from the table (Read and Update function)
     public function displayRecordByID($ID)
     {
         // adding query to display our data
-
-        // Here I have limited the query to 1 row which will only display one record and other records will not be displayed
-        $query = "SELECT * FROM Profile_Record WHERE ID = '$ID' LIMIT 1";
+        $query = "SELECT * FROM Profile_Record WHERE ID = '$ID'";
         $results = $this->databaseConnect->query($query);
         if ($results->num_rows > 0) {
             $row = $results->fetch_assoc();
         } else {
-            // adding alert fo error
+            // adding alert for error
             echo "<div class='alert alert-danger alert-dismissible'>
          <button type='button' class='close' data-dismiss='alert'>X</button>
          <strong>Error! </strong> Your profile couldn't be updated!
@@ -102,7 +101,7 @@ class database
         $ID = $this->databaseConnect->real_escape_string($_POST['ID']);
         if (!empty($ID) && !empty($postData)) {
             // adding query to update our data
-            $query = "UPDATE Profile_Record SET FullName = '$fullname', Email = '$email', PhoneNumber = '$phonenum', Profession = '$profession', Birthdate = '$birthdate', Address = '$address', Bio = '$bio' WHERE ID = '$ID' LIMIT 1";
+            $query = "UPDATE Profile_Record SET FullName = '$fullname', Email = '$email', PhoneNumber = '$phonenum', Profession = '$profession', Birthdate = '$birthdate', Address = '$address', Bio = '$bio' WHERE ID = '$ID'";
             $sql = $this->databaseConnect->query($query);
             if ($sql == true) {
                 //this will display message on the View profile page when the form is submitted successfully
