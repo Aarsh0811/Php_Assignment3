@@ -9,14 +9,14 @@ ASSIGNMENT-3 */
 /* adding the variables to our table which will input data according to its type*/
 
 CREATE TABLE Profile_Record(
-ID int(11) AUTO_INCREMENT PRIMARY KEY,
-FullName varchar(100) NOT NULL,
-Email varchar(50) NOT NULL,
-PhoneNumber char(10) NOT NULL,
-Profession varchar(100) NOT NULL,
-Birthdate DATE NOT NULL,
-Address varchar(300) NOT NULL,
-Bio varchar(500) NOT NULL
+id int(11) AUTO_INCREMENT PRIMARY KEY,
+fullname varchar(100) NOT NULL,
+email varchar(50) NOT NULL,
+phonenum char(10) NOT NULL,
+profession varchar(100) NOT NULL,
+birthdate DATE NOT NULL,
+address varchar(300) NOT NULL,
+bio varchar(500) NOT NULL
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
 
 /*end of the code for our sql */
