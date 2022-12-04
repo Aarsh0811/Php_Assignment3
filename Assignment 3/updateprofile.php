@@ -74,13 +74,13 @@ if (isset($_POST['Update'])) {
 
                             <!-- input for our full name -->
                             <label for="fullname">Full Name</label>
-                            <input type="text" class="form-control" name="ufullname" value="<?php echo $customer['fullname']; ?>" required="This field is required!">
+                            <input type="text" class="form-control" id="fullname" name="ufullname" value="<?php echo $customer['fullname']; ?>" required="">
                         </div>
                         <div class="form-group col-md-6">
 
                             <!-- input for our email -->
                             <label for="email">Email</label>
-                            <input type="email" class="form-control" name="uemail" value="<?php echo $customer['email']; ?>" required="This field is required!">
+                            <input type="email" class="form-control" id="email" name="uemail" value="<?php echo $customer['email']; ?>" required="">
                         </div>
                     </div>
                     <div class="form-row">
@@ -88,14 +88,14 @@ if (isset($_POST['Update'])) {
 
                             <!-- input for our phone number -->
                             <label for="phonenum">Phone Number</label>
-                            <input type="tel" class="form-control" name="uphonenum" pattern="^[0-9]{6}|[0-9]{8}|[0-9]{10}$" value="<?php echo $customer['phonenum']; ?>" required="This field is required!">
+                            <input type="tel" class="form-control" id="phonenum" name="uphonenum" pattern="^[0-9]{6}|[0-9]{8}|[0-9]{10}$" value="<?php echo $customer['phonenum']; ?>" required="">
 
                         </div>
                         <div class="form-group col-md-6">
 
                             <!-- input for our profession -->
                             <label for="profession">Profession</label>
-                            <input type="text" class="form-control" name="uprofession" value="<?php echo $customer['profession']; ?>" required="This field is required!">
+                            <input type="text" class="form-control" id="profession" name="uprofession" value="<?php echo $customer['profession']; ?>" required="">
 
                         </div>
                     </div>
@@ -104,20 +104,20 @@ if (isset($_POST['Update'])) {
 
                             <!-- input for our date of birth -->
                             <label for="birthdate">Date of birth</label>
-                            <input type="date" class="form-control" name="ubirthdate" value="<?php echo $customer['birthdate']; ?>" required="This field is required!">
+                            <input type="date" class="form-control" id="birthdate" name="ubirthdate" value="<?php echo $customer['birthdate']; ?>" required="">
                         </div>
                         <div class="form-group col-md-6">
 
                             <!-- input for our address -->
                             <label for="address">Address</label>
-                            <input type="text" class="form-control" name="uaddress" value="<?php echo $customer['address']; ?>" required="This field is required!">
+                            <input type="text" class="form-control" id="address" name="uaddress" value="<?php echo $customer['address']; ?>" required="">
                         </div>
                     </div>
 
                     <!-- input for our bio -->
                     <label for="bio">Bio</label>
-                    <input type="textarea" class="form-control" name="ubio" value="<?php echo $customer['bio']; ?>" required="This field is required!">
-                    </div>
+                    <input type="text" class="form-control" id="bio" name="ubio" value="<?php echo $customer['bio']; ?>" required="">
+
                     <br>
 
                     <!-- Here the id is hidden as the users cannot change it as it is the trigger to fetch and display our data -->
