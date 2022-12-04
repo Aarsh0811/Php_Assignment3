@@ -100,7 +100,7 @@ if (isset($_GET['deletedID']) && !empty($_GET['deletedID'])) {
                         </div>
                     </div>
                 </div>
-                </div>
+
 
         </section>
         <section>
