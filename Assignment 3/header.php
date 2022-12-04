@@ -4,6 +4,7 @@ Student ID : 200520260
 Assignment#3 -->
 
 <!-- This is the code for our header which can be called to our main pages when required -->
+<!DOCTYPE html>
 
 <header class="shadow bg-indigo rounded">
     <div class="container py-5">
@@ -30,4 +31,5 @@ Assignment#3 -->
     </div>
 
 </header>
+</html>
 <!-- End of the code for our header -->
