@@ -56,25 +56,25 @@ if (isset($_POST['Addprofile'])) {
 
                         <!-- input for first name -->
                         <label for="fullname">Full Name</label>
-                        <input type="text" class="form-control" name="fullname" required="This field is required!" placeholder="Enter Your Full Name Here">
+                        <input type="text" class="form-control" id="fullname" name="fullname" required="" placeholder="Enter Your Full Name Here">
                     </div>
                     <!-- input for email -->
                     <div class="form-group col-md-6">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control" name="email" required="This field is required!" placeholder="Enter Your Email Address Here">
+                        <input type="email" class="form-control" id="email" name="email" required="" placeholder="Enter Your Email Address Here">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <!-- input for phone number -->
                         <label for="phonenum">Phone Number</label>
-                        <input type="tel" class="form-control" name="phonenum" required="This field is required!" pattern="^[0-9]{6}|[0-9]{8}|[0-9]{10}$" placeholder="Enter Your Phone Number Here">
+                        <input type="tel" class="form-control" id="phonenum" name="phonenum" required="" pattern="^[0-9]{6}|[0-9]{8}|[0-9]{10}$" placeholder="Enter Your Phone Number Here">
 
                     </div>
                     <div class="form-group col-md-6">
                         <!-- input for profession -->
                         <label for="profession">Profession</label>
-                        <input type="text" class="form-control" name="profession" required="This field is required!" placeholder="Enter Your Profession Here">
+                        <input type="text" class="form-control" id="profession" name="profession" required="" placeholder="Enter Your Profession Here">
 
                     </div>
                 </div>
@@ -82,18 +82,18 @@ if (isset($_POST['Addprofile'])) {
                     <div class="form-group col-md-6">
                         <!-- input for date of birth -->
                         <label for="birthdate">Date of birth</label>
-                        <input type="date" class="form-control" name="birthdate" required="This field is required!" placeholder="Enter your birth date here">
+                        <input type="date" class="form-control" id="birthdate" name="birthdate" required="">
                     </div>
                     <div class="form-group col-md-6">
                         <!-- input for address -->
                         <label for="address">Address</label>
-                        <input type="text" class="form-control" name="address" required="This field is required!" placeholder="Enter Your Address Here">
+                        <input type="text" class="form-control" id="address" name="address" required="" placeholder="Enter Your Address Here">
                     </div>
                 </div>
                 <!-- input for Bio -->
                 <label for="bio">Bio</label>
-                <input type="textarea" class="form-control" name="bio" required="This field is required!" placeholder="Write your Bio Here">
-                </div>
+                <input type="text" class="form-control" id="bio" name="bio" required="" placeholder="Write your Bio Here">
+
                 <br>
 
                 <!-- adding our submit button -->
